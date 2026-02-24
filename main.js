@@ -4,7 +4,7 @@ const generateBtn = document.querySelector('#generate');
 const generateNumbers = () => {
     const numbers = new Set();
     while (numbers.size < 6) {
-        numbers.add(Math.floor(Math.random() * 45) + 1);
+        numbers.add(Math.floor(Math.random() * 46) + 1);
     }
 
     numbersContainer.innerHTML = '';

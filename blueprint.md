@@ -6,7 +6,7 @@ This is a simple web application that generates random lottery numbers.
 
 ## Features
 
-*   Generate 6 random numbers between 1 and 45.
+*   Generate 6 random numbers between 1 and 46.
 *   Display the generated numbers.
 *   A button to generate new numbers.
 
