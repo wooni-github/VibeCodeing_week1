@@ -6,10 +6,15 @@
     <title>Lotto Number Generator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
+    <div class="theme-toggle">
+        <button id="toggle-theme">Toggle Dark Mode</button>
+    </div>
     <div class="container">
         <h1>Lotto Number Generator</h1>
-        <div class="numbers"></div>
+        <div class="machine-container">
+            <div class="numbers"></div>
+        </div>
         <button id="generate">Generate Numbers</button>
     </div>
     <script src="main.js"></script>

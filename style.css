@@ -1,26 +1,74 @@
+:root {
+    --bg-color: #f0f0f0;
+    --container-bg: #ffffff;
+    --text-color: #333333;
+    --circle-bg: #4CAF50;
+    --button-bg: #007BFF;
+    --button-hover: #0056b3;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --container-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --circle-bg: #388e3c;
+    --button-bg: #bb86fc;
+    --button-hover: #9965f4;
+    --shadow: rgba(255, 255, 255, 0.05);
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.theme-toggle button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: 1px solid var(--text-color);
+    background: transparent;
+    color: var(--text-color);
+    border-radius: 20px;
+    transition: all 0.3s;
 }
 
 .container {
     text-align: center;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--container-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    width: 90%;
+    max-width: 500px;
+}
+
+.machine-container {
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
 }
 
 .numbers {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
+    gap: 0.8rem;
+    flex-wrap: wrap;
 }
 
 .circle {
@@ -30,23 +78,47 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: white;
-    background-color: #4CAF50;
+    background-color: var(--circle-bg);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    
+    /* Animation properties */
+    opacity: 0;
+    transform: translateY(20px) scale(0.5);
+    animation: ballAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes ballAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 #generate {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
+    border-radius: 10px;
+    background-color: var(--button-bg);
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s, background-color 0.3s;
 }
 
 #generate:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}
+
+#generate:active {
+    transform: scale(0.95);
+}
+
+#generate:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
