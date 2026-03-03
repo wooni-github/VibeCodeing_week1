@@ -1,22 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Premium Lotto - High Quality Generator</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css?v=1.0.1">
 </head>
-<body class="light-mode">
-    <div class="theme-toggle">
-        <button id="toggle-theme">Toggle Dark Mode</button>
-    </div>
-    <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <div class="machine-container">
-            <div class="numbers"></div>
+<body class="light">
+    <div class="noise-overlay"></div>
+    
+    <header>
+        <div class="logo">
+            <i data-lucide="sparkles"></i>
+            <span>PREMIUM LOTTO</span>
         </div>
-        <button id="generate">Generate Numbers</button>
-    </div>
-    <script src="main.js"></script>
+        <button id="theme-toggle" class="icon-button" aria-label="테마 변경">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+        </button>
+    </header>
+
+    <main>
+        <div class="glass-card">
+            <section class="display-section">
+                <h1>오늘의 행운 번호</h1>
+                <p class="subtitle">버튼을 눌러 당신의 행운을 확인하세요</p>
+                
+                <div id="lotto-machine" class="machine-container">
+                    <!-- Web Component will be injected here or used directly -->
+                    <div id="ball-display" class="ball-display">
+                        <!-- Placeholder for empty state -->
+                        <div class="empty-state">
+                            <i data-lucide="dice-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="controls">
+                <button id="generate-trigger" class="primary-button">
+                    <span>번호 추첨하기</span>
+                    <i data-lucide="play"></i>
+                </button>
+            </section>
+            
+            <section class="history-section">
+                <h3>최근 추첨 결과</h3>
+                <div id="history-list" class="history-list">
+                    <!-- History items will be added here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Premium Lotto Studio. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js?v=1.0.1" type="module"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
