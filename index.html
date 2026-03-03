@@ -57,6 +57,54 @@
                 </div>
             </section>
         </div>
+
+        <div class="glass-card comments-section">
+            <section>
+                <h2>행운의 한마디</h2>
+                <p class="subtitle">오늘의 운세를 나누고 당첨을 기원하세요!</p>
+                <div class="giscus"></div>
+            </section>
+        </div>
+
+        <div class="glass-card inquiry-section">
+            <section>
+                <h2>제휴 및 서비스 문의</h2>
+                <p class="subtitle">프리미엄 로또 서비스와 함께할 파트너를 찾습니다.</p>
+                
+                <form action="https://formspree.io/f/xaqdggbe" method="POST" class="inquiry-form">
+                    <div class="input-group">
+                        <label for="name">성함 / 업체명</label>
+                        <input type="text" id="name" name="name" placeholder="홍길동 / (주)로또파트너" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">이메일 주소</label>
+                        <input type="email" id="email" name="email" placeholder="partner@example.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="subject">문의 유형</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" disabled selected>선택해주세요</option>
+                            <option value="partnership">비즈니스 제휴</option>
+                            <option value="marketing">마케팅 / 광고 문의</option>
+                            <option value="technical">기술 지원 / API 문의</option>
+                            <option value="other">기타 문의</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="message">상세 내용</label>
+                        <textarea id="message" name="message" rows="5" placeholder="문의하실 내용을 상세히 적어주세요." required></textarea>
+                    </div>
+
+                    <button type="submit" class="primary-button secondary">
+                        <span>문의 보내기</span>
+                        <i data-lucide="send"></i>
+                    </button>
+                </form>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -67,6 +115,24 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+
+        // Giscus configuration
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.setAttribute('data-repo', 'wooni-github/VibeCodeing_week1');
+        script.setAttribute('data-repo-id', 'R_kgDORXyh5g'); 
+        script.setAttribute('data-category', 'General');
+        script.setAttribute('data-category-id', 'DIC_kwDORXyh5s4C3my6'); 
+        script.setAttribute('data-mapping', 'pathname');
+        script.setAttribute('data-strict', '0');
+        script.setAttribute('data-reactions-enabled', '1');
+        script.setAttribute('data-emit-metadata', '0');
+        script.setAttribute('data-input-position', 'bottom');
+        script.setAttribute('data-theme', document.body.classList.contains('dark') ? 'dark_dimmed' : 'light');
+        script.setAttribute('data-lang', 'ko');
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+        document.body.appendChild(script);
     </script>
 </body>
 </html>
